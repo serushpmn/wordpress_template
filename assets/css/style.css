@@ -1077,6 +1077,28 @@ input[type="text"] {
   color: color-mix(in srgb, var(--color-muted) 42%, transparent);
 }
 
+.product-head {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  direction: rtl;
+}
+
+.product-head__titles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-4);
+}
+
+.product-head h1 {
+  margin: 0;
+  color: #001c55;
+  font-size: clamp(20px, 1.7vw, 25px);
+  line-height: 1.75;
+  text-align: right;
+}
+
 .product-summary {
   display: grid;
   grid-template-areas: "purchase details media";
@@ -1168,19 +1190,12 @@ input[type="text"] {
   box-shadow: none;
 }
 
-.product-info h1 {
-  margin: var(--space-3) 0 var(--space-1);
-  color: #001c55;
-  font-size: clamp(20px, 1.7vw, 25px);
-  line-height: 1.75;
-  text-align: right;
-}
-
 .product-title-en {
   color: #9aa8bd;
   font-size: 12px;
   font-weight: 800;
   text-align: left;
+  white-space: nowrap;
 }
 
 .product-badges {
@@ -1986,7 +2001,7 @@ input[type="text"] {
   border-top-color: rgba(255, 255, 255, 0.16);
 }
 
-[data-theme="dark"] .product-info h1,
+[data-theme="dark"] .product-head h1,
 [data-theme="dark"] .product-spec-list dt,
 [data-theme="dark"] .product-spec-list dd,
 [data-theme="dark"] .seller-status,
@@ -2450,8 +2465,13 @@ input[type="text"] {
     padding: var(--space-4);
   }
 
-  .product-info h1 {
+  .product-head h1 {
     font-size: 21px;
+  }
+
+  .product-head__titles {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
   }
 
   .product-badges {
@@ -2460,6 +2480,7 @@ input[type="text"] {
 
   .product-title-en {
     text-align: right;
+    white-space: normal;
   }
 
   .product-highlights {
